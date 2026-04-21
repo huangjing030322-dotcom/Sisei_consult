@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* 黒白プロフェッショナル配色 */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 8%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+
+    /* 主色 — 深黒 */
+    --primary: 0 0% 8%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 15%;
+
+    --muted: 0 0% 97%;
+    --muted-foreground: 0 0% 45%;
+
+    /* アクセント — ゴールド */
+    --accent: 40 60% 30%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 60% 40%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* ボーダー — 極細グレー */
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 0 0% 8%;
+
+    --radius: 0rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 8%;
+    --sidebar-primary: 0 0% 8%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 15%;
+    --sidebar-border: 0 0% 85%;
+    --sidebar-ring: 0 0% 8%;
+  }
+
+  .dark {
+    --background: 0 0% 6%;
+    --foreground: 0 0% 92%;
+
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 92%;
+
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 92%;
+
+    --primary: 0 0% 90%;
+    --primary-foreground: 0 0% 6%;
+
+    --secondary: 0 0% 13%;
+    --secondary-foreground: 0 0% 92%;
+
+    --muted: 0 0% 12%;
+    --muted-foreground: 0 0% 58%;
+
+    --accent: 40 50% 55%;
+    --accent-foreground: 0 0% 8%;
+
+    --destructive: 0 65% 45%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 0 0% 90%;
+
+    --sidebar-background: 0 0% 6%;
+    --sidebar-foreground: 0 0% 92%;
+    --sidebar-primary: 0 0% 90%;
+    --sidebar-primary-foreground: 0 0% 6%;
+    --sidebar-accent: 0 0% 13%;
+    --sidebar-accent-foreground: 0 0% 92%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 0 0% 90%;
+  }
+}
+
+@layer base {
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    overflow-x: clip;
+    font-feature-settings: "kern" 1, "palt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    line-height: 1.9;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1.5;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+    line-height: 2;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .font-variant-numeric-tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ゴールドアクセント */
+  .text-jp-gold {
+    color: hsl(40, 60%, 30%);
+  }
+
+  .bg-jp-gold {
+    background-color: hsl(40, 60%, 30%);
+  }
+
+  /* 黒アクセント */
+  .text-jp-black {
+    color: hsl(0, 0%, 8%);
+  }
+
+  .bg-jp-black {
+    background-color: hsl(0, 0%, 8%);
+  }
+
+  /* 細線ボーダー */
+  .border-jp {
+    border-color: hsl(0, 0%, 82%);
+    border-width: 1px;
+  }
+
+  /* プロフェッショナルカード */
+  .jp-card {
+    background: white;
+    border: 1px solid hsl(0, 0%, 85%);
+    border-radius: 0;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .jp-card:hover {
+    border-color: hsl(0, 0%, 8%);
+    box-shadow: 3px 3px 0 hsl(0, 0%, 8% / 0.08);
+  }
+
+  /* 区切り線 */
+  .jp-divider {
+    width: 2.5rem;
+    height: 2px;
+    background-color: hsl(0, 0%, 8%);
+    margin: 1rem 0 1.5rem;
+  }
+
+  /* 見出し左アクセントライン */
+  .jp-heading::before {
+    content: '';
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background-color: hsl(0, 0%, 8%);
+    margin-right: 0.75rem;
+    vertical-align: middle;
+    border-radius: 0;
+  }
+
+  /* 角ゼロのボタン */
+  .btn-jp {
+    border-radius: 0;
+    font-family: "Noto Sans JP", sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    transition: all 0.15s ease;
+  }
+
+  /* 黒タグ */
+  .jp-tag {
+    display: inline-block;
+    background-color: hsl(0, 0%, 8%);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    padding: 0.15rem 0.6rem;
+    text-transform: uppercase;
+  }
+
+  /* アクセントライン（黒） */
+  .accent-line {
+    display: inline-block;
+    height: 2px;
+    background: linear-gradient(90deg, hsl(0,0%,8%) 0%, hsl(0,0%,60%) 100%);
+  }
+}
